@@ -1,6 +1,8 @@
 // From https://thoughtbot.com/blog/how-to-make-a-chrome-extension
 
 // background.js
+// Overall browser specific scripts - listen for click events; create new tabs
+
 
 // Called when the user clicks on the browser action.
 chrome.browserAction.onClicked.addListener(function(tab) {
@@ -11,7 +13,7 @@ chrome.browserAction.onClicked.addListener(function(tab) {
   });
 });
 
-// Listens for message from content.js
+// Listens for message from content.js and create a new tab
 chrome.runtime.onMessage.addListener(
   function(request, sender, sendResponse) {
     if( request.message === "open_new_tab" ) {
